@@ -1,0 +1,113 @@
+{% extends 'shop/base1.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="container my-5"style="margin-top: 200px;">
+    <div class="col-lg-12 border p-3 bg-white my-5">
+
+        <div class="row m-0">
+            <div class="col-lg-6 left-side-product-box pb-3">
+                <img src="{{product.product_image.url}}"
+                    class="border p-3" style="height: 500px; width:500px;">
+                <!-- <div class="row">
+                    <div class="col-lg-4 col-sm-12 col-md-6">
+                        <img src="/static/assets/images/collection/arrivals1.png"
+                            class="border p-2">
+
+                    </div>
+                    <div class="col-lg-4 col-sm-12 col-md-6">
+                        <img src="/static/assets/images/collection/arrivals1.png"
+                            class="border p-2">
+
+                    </div>
+                    <div class="col-lg-4 col-sm-12 col-md-6">
+                        <img src="/static/assets/images/collection/arrivals1.png"
+                            class="border p-2">
+                    </div>
+                </div> -->
+            </div>
+            <div class="col-lg-6">
+                <div class="right-side-pro-detail border p-3 m-0">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <span>{{product.title}}</span>
+                            <p class="m-0 p-0">{{product.brnad.brand_name}}</p>
+                        </div>
+                        <div class="col-lg-12">
+                            <p class="m-0 p-0 price-pro"><s>Rs.{{product.price}}</s></p>
+                            <p class="m-0 p-0 price-pro">Rs.{{product.discounted_price}}</p>
+                            <hr class="p-0 m-0">
+                        </div>
+                        <div class="col-lg-12 pt-2">
+                            <h5>Product Detail</h5>
+                            <span>{{product.description}}</span>
+                            <hr class="m-0 pt-2 mt-2">
+                        </div>
+                        <div class="col-lg-12">
+                            <p class="tag-section"><strong>Tag : </strong><a
+                                    href="">{{product.tags}}</p>
+                        </div>
+                        <div class="col-lg-12">
+                            <h6>Quantity :</h6>
+                            <input type="number" class="form-control text-center
+                                w-100" value="1">
+                        </div>
+                        <div class="col-lg-12 mt-3">
+                            <div class="row " style="margin-top: 10px;">
+                                <div class="col-lg-6 pb-2">
+                                    <a href="#" class="btn btn-danger w-100">Add
+                                        To Cart</a>
+                                </div>
+                                <div class="col-lg-6">
+                                    <a href="#" class="btn btn-success w-100">Shop
+                                        Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 text-center pt-3">
+                <h4>More Product</h4>
+            </div>
+        </div>
+        <div class="new-arrivals-content">
+            <div class="row">
+                {% for obj in cats %}
+                    <div class="col-md-3 col-sm-4">
+                        <div class="single-new-arrival">
+                            <div class="single-new-arrival-bg">
+                                <img
+                                    src="{{obj.product_image.url}}"
+                                    alt="new-arrivals images">
+                                <div class="single-new-arrival-bg-overlay"></div>
+                                <div class="sale bg-1">
+                                    <p>sale</p>
+                                </div>
+                                <div class="new-arrival-cart">
+                                    <p>
+                                        <span class="lnr lnr-cart"></span>
+                                        <a href="" data-name="{{obj.title}}{{obj.id}}" data-objid="{{obj.id}}" data-price="{{obj.discounted_price}}" data-image="{{obj.product_image.url}}" class="add-to-cart">add <span>to </span> cart</a>
+                                    </p>
+                                    <p href="" class="arrival-review pull-right add-to-cart">
+                                        <span class="lnr lnr-heart"></span>
+                                        <span class="lnr lnr-frame-expand"></span>
+                                    </p>
+                                </div>
+                            </div>
+                            <h4><a href="/detail/{{obj.id}}" style="font-size:12px ;">{{obj.title | truncatechars:22}}</a></h4>
+
+                            <p class="arrival-product-price" style="font-size:12px ;"><s>Rs.{{obj.price}} </s></p>
+                            <p class="arrival-product-price" style="font-size: 10px;">Rs.{{obj.discounted_price}}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,248 @@
+{% load static %}
+
+<!doctype html>
+<html class="no-js" lang="en">
+
+	<head>
+		<!-- meta data -->
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+		<!--font-family-->
+		<link
+			href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i"
+			rel="stylesheet">
+
+		<!-- title of site -->
+		<title>Furniture</title>
+
+		<!-- For favicon png -->
+		<link rel="shortcut icon" type="image/icon" href="assets/logo/favicon.png"/>
+		<!--font-awesome.min.css-->
+		<link rel="stylesheet" href="/static/assets/css/font-awesome.min.css">
+		<!--linear icon css-->
+		<link rel="stylesheet" href="/static/assets/css/linearicons.css">
+		<!--animate.css-->
+		<link rel="stylesheet" href="/static/assets/css/animate.css">
+		<!--owl.carousel.css-->
+		<link rel="stylesheet" href="/static/assets/css/owl.carousel.min.css">
+		<link rel="stylesheet" href="/static/assets/css/owl.theme.default.min.css">
+		<!--bootstrap.min.css-->
+		<link rel="stylesheet" href="/static/assets/css/bootstrap.min.css">
+
+		<!-- bootsnav -->
+		<link rel="stylesheet" href="/static/assets/css/bootsnav.css">
+		<!--style.css-->
+		<link rel="stylesheet" href="/static/assets/css/style.css">
+		<!--responsive.css-->
+		<link rel="stylesheet" href="/static/assets/css/responsive.css">
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+	</head>
+
+	<body>
+		<!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+		<style>
+			.navbar,.footer{
+				background: rgb(227,208,240);
+background: linear-gradient(90deg, rgba(227,208,240,1) 0%, rgba(237,208,208,0.7822479333530288) 50%, rgba(246,241,234,1) 100%);
+
+			}
+			.main-section{
+				background: rgb(195,166,34);
+background: linear-gradient(0deg, rgba(195,166,34,1) 0%, rgba(209,186,91,1) 32%, rgba(220,203,137,1) 58%, rgba(238,230,212,1) 100%);
+			}
+			.single-new-arrival,.single-populer-products, .single-feature, .single-blog{
+				border: .5px solid;
+				border-radius: 5px;
+				background: #fefcfc;
+				box-shadow:  21px 21px 43px #cecaca,
+             -21px -21px 43px #ffffff;
+			 border-color: yellow;
+			 padding: 2px;
+			 
+			}
+			.cat-img{
+				height: 40px;
+				width: 40px;
+				border: .5px solid rgb(80, 80, 60) ;
+				border-radius: 2px;
+			}
+			.cat-card{
+				background: #e0e0e0;
+				box-shadow: inset -20px -20px 40px #b5b5b5,
+							inset 20px 20px 40px #ffffff;
+			}
+			.list-group-item:hover{
+				transform: scale(1.01);
+				padding: 5px;
+				margin: 5px;
+				overflow: hidden;
+				transition: transform .1s ease;
+			}
+			s, strike{text-decoration:none;position:relative;}
+s::before, strike::before {
+    top: 50%; /*tweak this to adjust the vertical position if it's off a bit due to your font family */
+    background:red; /*this is the color of the line*/
+    opacity:.7;
+    content: '';
+    width: 110%;
+    position: absolute;
+    height:.1em;
+    border-radius:.1em;
+    left: -5%;
+    white-space:nowrap;
+    display: block;
+    transform: rotate(-15deg);  
+}
+s.straight::before, strike.straight::before{transform: rotate(0deg);left:-1%;width:102%;}
+
+		</style>
+		<!--welcome-hero start -->
+		<!--welcome-hero start -->
+		<header id="home" class="welcome-hero">
+
+			{% block header %}
+			
+			{% endblock %}
+			<!--/#header-carousel-->
+
+			<!-- top-area Start -->
+			<div class="top-area">
+				<div class="header-area">
+					<!-- Start Navigation -->
+					<nav class="navbar navbar-default bootsnav navbar-sticky navbar-scrollspy"
+						data-minus-value-desktop="70" data-minus-value-mobile="55"
+						data-speed="1000">
+
+						<!-- Start Top Search -->
+						<div class="top-search">
+							<div class="container">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-search"></i></span>
+									<input type="text" class="form-control" placeholder="Search">
+									<span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
+								</div>
+							</div>
+						</div>
+						<!-- End Top Search -->
+
+						<div class="container">
+							<!-- Start Atribute Navigation -->
+							<div class="attr-nav nav_gradient">
+								<ul>
+									<li class="search">
+										<a href="#"><span class="lnr lnr-magnifier"></span></a>
+									</li><!--/.search-->
+									<li class="nav-setting">
+										<a href="#"><span class="lnr lnr-cog"></span></a>
+									</li><!--/.search-->
+									<li class="dropdown">
+										<a href="/view_cart" class="dropdown-toggle" data-toggle="dropdown">
+											<span class="lnr lnr-cart"></span>
+											<span class="badge badge-bg-1 total-count">0</span>
+										</a>
+										<ul class="dropdown-menu show-cart cart-list s-cate">
+											<!--/.single-cart-list -->
+										</ul>
+									</li><!--/.dropdown-->
+								</ul>
+							</div><!--/.attr-nav-->
+							<!-- End Atribute Navigation -->
+
+							<!-- Start Header Navigation -->
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle" data-toggle="collapse"
+									data-target="#navbar-menu">
+									<i class="fa fa-bars"></i>
+								</button>
+								<a class="navbar-brand" href="index.html">sine<span>mkt</span>.</a>
+							</div><!--/.navbar-header-->
+							<!-- End Header Navigation -->
+
+							<!-- Collect the nav links, forms, and other content for toggling -->
+							<div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
+								<ul class="nav navbar-nav navbar-center" data-in="fadeInDown"
+									data-out="fadeOutUp">
+									<li class=" active"><a href="/">home</a></li>
+									<li class="scrol"><a href="/products">Products</a></li>
+									<li class="scrol"><a href="/detail">Detail</a></li>
+									<li class="scrol"><a href="#blog">blog</a></li>
+									<li class="scrol"><a href="/contact">contact</a></li>
+								</ul><!--/.nav -->
+							</div><!-- /.navbar-collapse -->
+						</div><!--/.container-->
+					</nav><!--/nav-->
+					<!-- End Navigation -->
+				</div><!--/.header-area-->
+				<div class="clearfix"></div>
+
+			</div><!-- /.top-area-->
+			<!-- top-area End -->
+
+		</header><!--/.welcome-hero-->
+		<!--welcome-hero end -->
+		<!-- <div class="main-section"> -->
+		{% block content %}
+		{% endblock %}
+		<!-- </div> -->
+		<footer id="footer" class="footer">
+			<div class="container">
+				<div class="hm-footer-copyright text-center">
+					<div class="footer-social">
+						<a href="#"><i class="fa fa-facebook"></i></a>
+						<a href="#"><i class="fa fa-instagram"></i></a>
+						<a href="#"><i class="fa fa-linkedin"></i></a>
+						<a href="#"><i class="fa fa-pinterest"></i></a>
+						<a href="#"><i class="fa fa-behance"></i></a>
+					</div>
+					<p>
+						&copy;copyright. designed and developed by <a
+							href="https://www.themesine.com/">themesine</a>
+					</p><!--/p-->
+				</div><!--/.text-center-->
+			</div><!--/.container-->
+
+			<div id="scroll-Top">
+				<div class="return-to-top">
+					<i class="fa fa-angle-up " id="scroll-top" data-toggle="tooltip"
+						data-placement="top" title="" data-original-title="Back to Top"
+						aria-hidden="true"></i>
+				</div>
+
+			</div>
+
+		</footer>
+		<!-- Include all js compiled plugins (below), or include individual files as needed -->
+		<script src="/static/assets/js/jquery.js"></script>
+
+		<!--modernizr.min.js-->
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+		<!--bootstrap.min.js-->
+		<script src="/static/assets/js/bootstrap.min.js"></script>
+
+		<!-- bootsnav js -->
+		<script src="/static/assets/js/bootsnav.js"></script>
+
+		<!--owl.carousel.js-->
+		<script src="/static/assets/js/owl.carousel.min.js"></script>
+
+
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+		<!--Custom JS-->
+		<script src="/static/assets/js/custom.js"></script>
+		<script src="/static/assets/js/cart.js"></script>
+
+	</body>
+
+</html>

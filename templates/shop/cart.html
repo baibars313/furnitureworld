@@ -1,0 +1,137 @@
+{% extends 'shop/base1.html' %}
+{% load static %}
+
+
+{% block content %}
+<style>
+    .wht{
+        color: white;
+        margin: 2px;
+    }
+    .rounded{
+        border-radius: 5px;
+    }
+    .card{
+        border-radius: 10px;
+        box-shadow:  25px 25px 78px #b8b8b8,
+        -25px -25px 78px #ffffff;
+        margin-top: 6px;
+    }
+    ul.cart-list {
+        padding: 0 !important;
+        width: 100% !important;
+        
+    }
+    .bg-gradient-blue{
+        background: rgb(8,5,73);
+        background: linear-gradient(90deg, rgba(8,5,73,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+    }
+    .btn-gradient-red{
+        background: rgb(131,58,180);
+        background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+    }
+</style>
+<section class="h-100 h-custom container" style="background-color: rgb(255, 252, 252); padding:20px; margin-top:130px; border-radius:5px; ">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col">
+                <div class="">
+                    <div class="card-body p-4">
+
+                        <div class="row">
+
+                            <div class="col-lg-6">
+                                <h5 class="mb-3"><a href="#!" class="text-body"><i
+                                            class="fas fa-long-arrow-alt-left
+                                            me-2"></i>Continue shopping</a></h5>
+                                <hr>
+
+                                <div class="d-flex justify-content-between
+                                    align-items-center mb-4">
+                                    <div>
+                                        <p class="mb-1">Shopping cart</p>
+                                        <p class="mb-0">You have <span class="total-count"></span> items in your
+                                            cart</p>
+                                    </div>
+                                    <div>
+                                        <p class="mb-0"><span
+                                                class="text-muted">Sort by:</span>
+                                            <a href="#!"
+                                                class="text-body">price <i
+                                                    class="fas fa-angle-down
+                                                    mt-1"></i></a></p>
+                                    </div>
+                                </div>
+
+                                <div class="card mb-3" style="background-color: white; margin-right:40px ; margin-bottom:20px;">
+                                    <div class="card-body">
+                                        <ul class="cart-list s-cate show-cart2" style="width: 95%; ">
+				                           
+				                        </ul>
+                                    </div>
+                                </div>
+
+                                
+                            </div>
+                            <div class="col-lg-6 ">
+
+                                <div class="card   text-white bg-gradient-blue
+                                    rounded-3" style="padding: 20px; margin-right:35px; border-radius:5px;">
+                                    <div class="card-body">
+                                        <div class="d-flex
+                                            justify-content-between
+                                            align-items-center mb-4">
+                                            <h5 class="mb-0" style="color:beige;">Address Details</h5>
+                                        </div>
+
+
+                                        <form class="mt-4">
+                                            {{form}}
+
+                                        </form>
+
+                                        <hr class="my-4">
+
+                                        <div class="d-flex
+                                            justify-content-between">
+                                            <p class="mb-2 wht">Total</p>
+                                            <p class="mb-2 total-cart wht">Rs.</p>
+                                        </div>
+
+                                        <div class="d-flex
+                                            justify-content-between">
+                                            <p class="mb-2 wht">Shipping</p>
+                                            <p class="mb-2 wht">$20.00</p>
+                                        </div>
+
+                                        <div class="d-flex
+                                            justify-content-between mb-4">
+                                            <p class="mb-2 wht">Total(Incl. taxes)</p>
+                                            <p class="mb-2 total-cart wht">Rs.</p>
+                                        </div>
+
+                                        <button type="button" class="btn
+                                           btn-gradient-red btn-block btn-lg">
+                                            <div class="d-flex
+                                                justify-content-between">
+                                                <span class="total-cart wht"></span>
+                                                <span class="wht">Checkout <i class="fas
+                                                        fa-long-arrow-alt-right
+                                                        ms-2"></i></span>
+                                            </div>
+                                        </button>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
