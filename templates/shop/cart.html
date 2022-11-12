@@ -31,7 +31,9 @@
         background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
     }
 </style>
-<section class="h-100 h-custom container" style="background-color: rgb(255, 252, 252); padding:20px; margin-top:130px; border-radius:5px; ">
+
+<section class="h-100 h-custom container" style="background-color: rgb(255, 252,
+    252); padding:20px; margin-top:130px; border-radius:5px; ">
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col">
@@ -50,7 +52,9 @@
                                     align-items-center mb-4">
                                     <div>
                                         <p class="mb-1">Shopping cart</p>
-                                        <p class="mb-0">You have <span class="total-count"></span> items in your
+                                        <p class="mb-0">You have <span
+                                                class="total-count"></span>
+                                            items in your
                                             cart</p>
                                     </div>
                                     <div>
@@ -63,64 +67,71 @@
                                     </div>
                                 </div>
 
-                                <div class="card mb-3" style="background-color: white; margin-right:40px ; margin-bottom:20px;">
+                                <div class="card mb-3" style="background-color:
+                                    white; margin-right:40px ;
+                                    margin-bottom:20px;">
                                     <div class="card-body">
-                                        <ul class="cart-list s-cate show-cart2" style="width: 95%; ">
-				                           
-				                        </ul>
+                                        <ul class="cart-list s-cate show-cart2"
+                                            style="width: 95%; ">
+
+                                        </ul>
                                     </div>
                                 </div>
+                                <button class="btn btn-gradient-red  btn-lg wht form-control" onclick="clearcart()" style="width:95%;">Clear Cart</button>
 
-                                
+
                             </div>
                             <div class="col-lg-6 ">
 
-                                <div class="card   text-white bg-gradient-blue
-                                    rounded-3" style="padding: 20px; margin-right:35px; border-radius:5px;">
+                                <div class="card text-white bg-gradient-blue
+                                    rounded-3" style="padding: 20px;
+                                    margin-right:35px; border-radius:5px;">
                                     <div class="card-body">
                                         <div class="d-flex
                                             justify-content-between
                                             align-items-center mb-4">
-                                            <h5 class="mb-0" style="color:beige;">Address Details</h5>
+                                            <h5 class="mb-0"
+                                                style="color:beige;">Address
+                                                Details</h5>
                                         </div>
 
 
-                                        <form class="mt-4">
+                                        <form class="mt-4" method="post" id="form_order">
                                             {{form}}
+                                            {% csrf_token %}
+                                            <hr class="my-4">
 
-                                        </form>
-
-                                        <hr class="my-4">
-
-                                        <div class="d-flex
-                                            justify-content-between">
-                                            <p class="mb-2 wht">Total</p>
-                                            <p class="mb-2 total-cart wht">Rs.</p>
-                                        </div>
-
-                                        <div class="d-flex
-                                            justify-content-between">
-                                            <p class="mb-2 wht">Shipping</p>
-                                            <p class="mb-2 wht">$20.00</p>
-                                        </div>
-
-                                        <div class="d-flex
-                                            justify-content-between mb-4">
-                                            <p class="mb-2 wht">Total(Incl. taxes)</p>
-                                            <p class="mb-2 total-cart wht">Rs.</p>
-                                        </div>
-
-                                        <button type="button" class="btn
-                                           btn-gradient-red btn-block btn-lg">
                                             <div class="d-flex
                                                 justify-content-between">
-                                                <span class="total-cart wht"></span>
-                                                <span class="wht">Checkout <i class="fas
-                                                        fa-long-arrow-alt-right
-                                                        ms-2"></i></span>
+                                                <p class="mb-2 wht">Total</p>
+                                                <p class="mb-2 total-cart wht">Rs.</p>
                                             </div>
-                                        </button>
+                                            <div class="d-flex
+                                                justify-content-between">
+                                                <p class="mb-2 wht">Shipping</p>
+                                                <p class="mb-2 wht">$20.00</p>
+                                            </div>
+                                            <div class="d-flex
+                                                justify-content-between mb-4">
+                                                <p class="mb-2 wht">Total(Incl.
+                                                    taxes)</p>
+                                                <p class="mb-2 total-cart wht">Rs.</p>
+                                            </div>
 
+                                            <button type="submit" class="btn
+                                                btn-gradient-red btn-block
+                                                btn-lg">
+                                                <div class="d-flex
+                                                    justify-content-between">
+                                                    <span class="total-cart
+                                                        wht"></span>
+                                                    <span class="wht">Checkout
+                                                        <i class="fas
+                                                            fa-long-arrow-alt-right
+                                                            ms-2"></i></span>
+                                                </div>
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
 
@@ -134,4 +145,7 @@
         </div>
     </div>
 </section>
+<script>
+    document.getElementById('user_id').value="{{user.id}}"
+</script>
 {% endblock %}

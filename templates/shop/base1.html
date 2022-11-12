@@ -16,6 +16,7 @@
 
 		<!-- title of site -->
 		<title>Furniture</title>
+		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 
 		<!-- For favicon png -->
 		<link rel="shortcut icon" type="image/icon" href="assets/logo/favicon.png"/>
@@ -174,9 +175,14 @@ s.straight::before, strike.straight::before{transform: rotate(0deg);left:-1%;wid
 									data-out="fadeOutUp">
 									<li class=" active"><a href="/">home</a></li>
 									<li class="scrol"><a href="/products">Products</a></li>
-									<li class="scrol"><a href="/detail">Detail</a></li>
-									<li class="scrol"><a href="#blog">blog</a></li>
-									<li class="scrol"><a href="/contact">contact</a></li>
+									{% comment %} <li class="scrol"><a href="/detail">Dashbaord</a></li> {% endcomment %}
+									{% if user.is_authenticated %}
+									<li class="scrol"><a href="/user_dashboard/{{user.id}}">Dashborad</a></li>
+									<li class="scrol"><a href="{% url 'logout' %}">LogOut</a></li>
+									{% else %}
+									<li class="scrol"><a href="/user/login">Sign in</a></li>
+									<li class="scrol"><a href="/user/regsiter">Reister</a></li>
+									{% endif %}
 								</ul><!--/.nav -->
 							</div><!-- /.navbar-collapse -->
 						</div><!--/.container-->
@@ -241,8 +247,8 @@ s.straight::before, strike.straight::before{transform: rotate(0deg);left:-1%;wid
 			src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 		<!--Custom JS-->
 		<script src="/static/assets/js/custom.js"></script>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 		<script src="/static/assets/js/cart.js"></script>
-
 	</body>
 
 </html>

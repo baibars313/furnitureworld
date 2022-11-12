@@ -9,6 +9,8 @@ class Categories(models.Model):
     name=models.CharField(max_length=255)
     category_description=models.TextField()
     category_image=models.ImageField(upload_to='category')
+    def __str__(self):
+        return self.name
     
 
 class Brands(models.Model):
@@ -31,6 +33,8 @@ class Products(models.Model):
     brands=models.ForeignKey(Brands, on_delete=models.CASCADE)
     sale=models.BooleanField(default=True)
     tags=models.CharField(max_length=255, default='chair table')
+    def __str__(self):
+        return self.title
     
 class Reviews(models.Model):
     user=models.ForeignKey(User, on_delete=models.CASCADE )
@@ -48,6 +52,11 @@ class Order(models.Model):
     customer_address=models.CharField(max_length=255)
     customer_postal_code=models.CharField(max_length=255)
     delivary_urgent=models.BooleanField(default=False)
+    status=models.CharField(max_length=255, default="RECIEVD")
+    
+    def __str__(self):
+        return self.customer_name
+    
     
     
 class Order_status(models.Model):

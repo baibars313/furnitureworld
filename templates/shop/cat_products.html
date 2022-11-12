@@ -10,6 +10,9 @@
     }
     a:hover{
         transform:scale(1);
+
+
+    
     }
 </style>
 <div class="container-fluid" style="margin-top: 200px;">
@@ -58,15 +61,16 @@
                         {% for cat in all_cats%}
                         <li class="list-group-item">
                             <a href="/" class="text-decoration-none">
-                           
-                            <img src="{{cat.category_image.url}}" class="cat-img" alt="">
-                            <label for="checkt" style="font-size: 13px;
-                                color:black;">{{cat.name}}
-                            </label>
+
+                                <img src="{{cat.category_image.url}}"
+                                    class="cat-img" alt="">
+                                <label for="checkt" style="font-size: 13px;
+                                    color:black;">{{cat.name}}
+                                </label>
                             </a>
                         </li>
                         {% endfor %}
-                       
+
                     </ul>
                 </div>
             </div><!--/.section-header-->
@@ -89,24 +93,73 @@
                                     <p>sale</p>
                                 </div>
                                 <div class="new-arrival-cart">
-                                    <p>
+                                    <a class="add-to-cart">
                                         <span class="lnr lnr-cart"></span>
-                                        <a href="" data-name="{{obj.title}}{{obj.id}}" data-id="{{obj.id}}" data-price="{{obj.discounted_price}}" data-image="{{obj.product_image.url}}" class="add-to-cart">add <span>to </span> cart</a>
-                                    </p>
-                                    <p href="" class="arrival-review pull-right add-to-cart">
+                                        <p
+                                            data-name="{{obj.title}}{{obj.id}}"
+                                            data-id="{{obj.id}}"
+                                            data-price="{{obj.discounted_price}}"
+                                            data-image="{{obj.product_image.url}}"
+                                            class="add-to-cart">add <span>to
+                                            </span> cart</p>
+                                        </a>
+                                    <a href="" class="arrival-review pull-right
+                                        add-to-cart">
                                         <span class="lnr lnr-heart"></span>
                                         <span class="lnr lnr-frame-expand"></span>
-                                    </p>
+                                </a>
                                 </div>
                             </div>
-                            <h4><a href="/detail/{{obj.id}}" style="font-size:12px ;">{{obj.title | truncatechars:22}}</a></h4>
+                            <h4><a href="/detail/{{obj.id}}"
+                                    style="font-size:12px ;">{{obj.title |
+                                    truncatechars:22}}</a></h4>
 
-                            <p class="arrival-product-price" style="font-size:12px ;"><s>Rs.{{obj.price}} </s></p>
-                            <p class="arrival-product-price" style="font-size: 10px;">Rs.{{obj.discounted_price}}</p>
+                            <p class="arrival-product-price"
+                                style="font-size:12px ;"><s>Rs.{{obj.price}}
+                                </s></p>
+                            <p class="arrival-product-price" style="font-size:
+                                10px;">Rs.{{obj.discounted_price}}</p>
                         </div>
                     </div>
                     {% endfor %}
+
                 </div>
+                <!--Pagination-->
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                      {% if all_prod.has_previous %}
+                        <li class="page-item">
+                          <a class="page-link" href="?page={{ all_prod.previous_page_number }}">Previous</a>
+                        </li>
+                      {% else %}
+                        <li class="page-item disabled">
+                          <a class="page-link" href="#" tabindex="-1" aria-disabled="True">Previous</a>
+                        </li>
+                      {% endif %}
+                      {% for i in all_prod.paginator.page_range %}
+                        {% if all_prod.number == i %}
+                          <li class="page-item active" aria-current="page">
+                            <span class="page-link">
+                              {{ i }}
+                              <span class="sr-only">(current)</span>
+                            </span>
+                          </li>
+                        {% else %}
+                          <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                        {% endif %}
+                      {% endfor %}
+                      {% if all_prod.has_next %}
+                        <li class="page-item">
+                          <a class="page-link" href="?page={{ all_prod.next_page_number }}">Next</a>
+                        </li>
+                      {% else %}
+                        <li class="page-item disabled">
+                          <a class="page-link" href="#" tabindex="-1" aria-disabled="True">Next</a>
+                        </li>
+                      {% endif %}
+                    </ul>
+                  </nav>
+                <!--end of Pagination-->
             </div>
         </div>
     </div>
