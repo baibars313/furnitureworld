@@ -10,8 +10,13 @@ from django.core.paginator import Paginator
 def home(request):
     fetured_product=Products.objects.filter(top_product=True)
     all_prod=Products.objects.all()
+    cat=Categories.objects.all()
+    if cat !=None:
+        cat1=cat[0]
+        cat2=cat[1]
+        cat3=cat[2]
     all_prod=all_prod[0:4]
-    return render(request, 'shop/index.html',{"fetured_product":fetured_product,"all_prod":all_prod})
+    return render(request, 'shop/index.html',{"fetured_product":fetured_product,"all_prod":all_prod,"cat1":cat1,"cat2":cat2,"cat3":cat3})
 
 def all_products(request):
     all_prod_list=Products.objects.all().order_by('id')
@@ -39,7 +44,7 @@ def cat_products(request,cat):
     all_prod = paginator.get_page(page_number)
     
     return render(request, 'shop/all_products.html',{"all_prod":all_prod, "all_cats":all_cats})
-
+@login_required(login_url='/user/login/')
 def cart(request):
     if request.method=='POST':
         if request.user.is_authenticated:
@@ -51,7 +56,7 @@ def cart(request):
             if form.is_valid() and t==total(all_obj):
                 form_obj=form.save()
                 idm=form_obj.id
-                return redirect(f'completed/{idm}')
+                return redirect(f'/recipt/{idm}')
         else:
             return redirect(f'user/login')
         
@@ -65,9 +70,21 @@ def completed(request,pk):
     grand_total=total(json.loads(order.order_details))
     context={"order":order, "grand_total":grand_total, "id_obj":id_obj,'pk':pk}
     return render(request,'shop/order_placed.html',context)
+def Recipt(request,pk):
+    order=Order.objects.get(id=pk)
+    id_obj=all_products_order(json.loads(order.order_details))
+    grand_total=total(json.loads(order.order_details))
+    context={"order":order, "grand_total":grand_total, "id_obj":id_obj,'pk':pk}
+    return render(request,'shop/reciept.html',context)
 
 
 @login_required(login_url='/user/login/')
 def user_dashboard(request,user_id):
     orders=Order.objects.filter(user=user_id)
     return render(request, 'shop/user_dashboard.html', {"orders":orders,'user_id':user_id})
+
+def all_orders_admin(request):
+    orders=Order.objects.all()
+    return render(request, 'shop/all_orders.html', {"orders":orders})
+
+

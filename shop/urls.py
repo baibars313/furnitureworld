@@ -20,8 +20,10 @@ urlpatterns = [
    path('', home, name='home' ),
    path('products/', all_products, name='all_product' ),
    path('completed/<int:pk>', completed, name='completed' ),
+   path('recipt/<int:pk>', Recipt, name='recipt' ),
    path('category/products/<int:cat>', cat_products, name='cat_product' ),
    path('detail/<int:pk>', detail, name='detail' ),
    path('view_cart', cart, name='cart' ),
    path('user_dashboard/<int:user_id>/', user_dashboard, name='user_dashboard' ),
+   path('all_orders/', all_orders_admin, name='user_dashboard' ),
 ] 

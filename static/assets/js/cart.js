@@ -150,8 +150,12 @@ var shoppingCart = (function() {
         obj={id:cartArray[i].id,cont:cartArray[i].count}
         ids_list.push(obj)
     }
-    document.getElementById('order_ids').value=JSON.stringify(ids_list)
-    document.getElementById('total').value=JSON.stringify(shoppingCart.totalCart())
+    if(document.getElementById('order_ids')!=undefined){
+      document.getElementById('order_ids').value=JSON.stringify(ids_list)
+      document.getElementById('total').value=JSON.stringify(shoppingCart.totalCart())
+
+    }
+   
   }
 
   $('.add-to-cart').click(function(event) {
@@ -166,6 +170,22 @@ var shoppingCart = (function() {
 
   });
   
+
+  $('.add-to-cart-more').click(function(event) {
+    event.preventDefault();
+    var name = $(this).data('name');
+    let image=$(this).data('image')
+    let id=$(this).data('id')
+    let no=parseInt(document.getElementById("qty").value)
+    console.log(no)
+    var price = Number($(this).data('price'));
+    console.log(name, price, no,image,id)
+    shoppingCart.addItemToCart(name, price, no,image,id);
+    displayCart();
+    viewListt()
+
+  });
+
   // Clear items
   function clearcart(){
 
@@ -174,6 +194,7 @@ var shoppingCart = (function() {
     displayCart();
   };
 
+  
   
   function displayCart() {
     var cartArray = shoppingCart.listCart();

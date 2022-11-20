@@ -47,23 +47,20 @@
                         </div>
                         <div class="col-lg-12">
                             <p class="tag-section"><strong>Tag : </strong><a
-                                    href="">{{product.tags}}</p>
+                                    href="">{{product.tags}}</a></p>
                         </div>
                         <div class="col-lg-12">
                             <h6>Quantity :</h6>
                             <input type="number" class="form-control text-center
-                                w-100" value="1">
+                                w-100" value="1" id="qty">
                         </div>
                         <div class="col-lg-12 mt-3">
                             <div class="row " style="margin-top: 10px;">
-                                <div class="col-lg-6 pb-2">
-                                    <a href="#" class="btn btn-danger w-100">Add
-                                        To Cart</a>
+                                <div class="col-lg-12 pb-2">
+                                    <button href="" class=" add-to-cart-more btn btn-danger w-100" data-name="{{product.title}}{{obj.id}}" data-id="{{product.id}}" data-price="{{product.discounted_price}}" data-image="{{product.product_image.url}}" class="add-to-cart">Add
+                                        To Cart</button>
                                 </div>
-                                <div class="col-lg-6">
-                                    <a href="#" class="btn btn-success w-100">Shop
-                                        Now</a>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>

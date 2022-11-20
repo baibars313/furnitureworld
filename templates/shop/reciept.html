@@ -35,7 +35,7 @@ a[x-apple-data-detectors] {
 }
 div[style*="margin: 16px 0;"] { margin: 0 !important; }
 </style>
-<body style="margin: 0 !important; padding: 0 !important; background-color: #eeeeee;" bgcolor="#eeeeee" onload="clearcart()">
+<body style="margin: 0 !important; padding: 0 !important; background-color: #eeeeee;" bgcolor="#eeeeee" onload="clearcart2()">
 
 
 <div style="display: none; font-size: 1px; color: #fefefe; line-height: 1px; font-family: Open Sans, Helvetica, Arial, sans-serif; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;">
@@ -218,6 +218,7 @@ For what reason would it be advisable for me to think about business content? Th
         </td>
     </tr>
 </table>
+<input type="hiden" calss="total-cart total-count show-cart show-cart2 add-to-cart" name="" id="">
 <script src="/static/assets/js/cart.js"></script>
 {% if user.is_superuser%}
 <script>
@@ -225,9 +226,14 @@ For what reason would it be advisable for me to think about business content? Th
 </script>
 {% else %}
 <script>
-    window.open("https://wa.me/03119670422/?text=Hello Ghouri Funiture You have New Order From {{user.useranme}} link Refered To Reciept is htts://ghourifurniture.com/completed/{{idm}}")
-    
+    function clearcart2(){
+    shoppingCart.clearCart();
+    viewCart();
+    displayCart();
+    window.open("https://wa.me/03119670422/?text=Hello Ghouri Funiture You have New Order From {{user.useranme}} link Refered To Reciept is htts://ghourifurniture.com/completed/{{idm}}","_blank")
+    }; 
 </script>
+
 {% endif %}   
 </body>
 </html>
